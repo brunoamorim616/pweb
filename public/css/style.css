@@ -1,0 +1,13 @@
+.sucesso{
+    color: #008000;
+    font-style: oblique;
+    font-weight: 600;
+    text-shadow: 2px 1px 0px rgba(0, 202, 200, 1);
+}
+
+.erro{
+    color: #d62728;
+    font-style: oblique;
+    font-weight: 600;
+    text-shadow: 2px 2px #ccc;
+}

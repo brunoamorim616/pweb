@@ -47,6 +47,9 @@ function adicionarCategoria(destino) {
         dadosForm = $('#formAdd').serialize();
         nomcat = $('#nomcat').val();
         
+        //Travar o botão adicionar
+        $('#btnSalvar').attr('disabled', true);
+        
         if (nomcat.trim() != "") {
         $.ajax({
 
@@ -56,7 +59,12 @@ function adicionarCategoria(destino) {
             dataType: 'html',
             success: function (data) {
                if (data == "true") {
-                   alert('Categoria adicionada com sucesso !');
+                   
+                   msg=('Categoria adicionada com Sucesso!')
+                   $('#status').hide();
+                   $('#status').html('<h4 class="sucesso">'+msg+'</h4>');
+                   $('#status').fadeIn(800);
+                   
                    
                    //Redireciona o usuário
                    //location.href='https://google.com';
@@ -64,18 +72,34 @@ function adicionarCategoria(destino) {
                    $('#nomcat').val('');
                    $('#nomcat').focus();
                    
+                   //Destrava o Botão adicionar
+                   $('#btnSalvar').removeAttr('disabled');
+                   
                } else {
-                   alert('Falha ao adicionar categoria !');
+                   
+                   msg=('Categoria não adicionada!')
+                   $('#status').hide();
+                   $('#status').html('<h4 class="erro">'+msg+'</h4>');
+                   $('#status').fadeIn(800);
+                   
+                   //Destrava o Botão adicionar
+                   $('#btnSalvar').removeAttr('disabled');
                }
             },
             error: function (argument) {
-                alert('Erro ao eliminar categoria!');
+               msg=('Erro ao eliminar categoria!')
+                   $('#status').hide();
+                   $('#status').html('<h4 class="erro">'+msg+'</h4>');
+                   $('#status').fadeIn(800);
             }
 
         });
         
     } else {
-        alert("Preencha todos os campos!");
+        msg=('Preencha os campos!')
+                   $('#status').hide();
+                   $('#status').html('<h4 class="erro">'+msg+'</h4>');
+                   $('#status').fadeIn(800);
     }
 
     return false;

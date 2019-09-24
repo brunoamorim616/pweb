@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="{{ url('/') }}/js/categoria.js" type="text/javascript"></script>
@@ -20,11 +21,10 @@
             
             <label for="nomcat">Nome da categoria</label><br/>
             <input type="text" name="nomcat" id="nomcat"/><br/><br/>
-            <button type="submit">Adicionar</button>
+            <button id="btnSalvar" type="submit">Adicionar</button>    
             
         </form>
-        
-        <h3>Categoria adicionada com sucesso !</h3>
+        <div id="status"></div>
         
     </body>
 </html>
